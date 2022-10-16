@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="Guillermo">
+    <Application name="KNIME" version="4.6.1"/>
+  </Header>
+  <DataDictionary numberOfFields="12">
+    <DataField name="fixed_acidity" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-2.6343860951255" rightMargin="6.698909900294323"/>
+    </DataField>
+    <DataField name="volatile_acidity" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-1.577208216683562" rightMargin="7.533774075299261"/>
+    </DataField>
+    <DataField name="citric_acid" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-2.1926637551047072" rightMargin="9.230570416205437"/>
+    </DataField>
+    <DataField name="residual_sugar" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-1.0179560992533658" rightMargin="12.685845805965272"/>
+    </DataField>
+    <DataField name="chlorides" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-1.3425357354021796" rightMargin="15.840967427742456"/>
+    </DataField>
+    <DataField name="free_sulfur_dioxide" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-1.663454525642443" rightMargin="14.562446276608037"/>
+    </DataField>
+    <DataField name="total_sulfur_dioxide" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-1.9416308142370484" rightMargin="5.736815048260878"/>
+    </DataField>
+    <DataField name="density" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-2.5299970425551237" rightMargin="14.767654263758857"/>
+    </DataField>
+    <DataField name="pH" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-3.1003763982543973" rightMargin="4.922650205353609"/>
+    </DataField>
+    <DataField name="sulphates" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-2.091774135697194" rightMargin="9.870119281302088"/>
+    </DataField>
+    <DataField name="alcohol" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-2.0891894739129837" rightMargin="3.6959467977327787"/>
+    </DataField>
+    <DataField name="style" optype="categorical" dataType="string">
+      <Value value="red"/>
+      <Value value="white"/>
+    </DataField>
+  </DataDictionary>
+  <GeneralRegressionModel modelType="multinomialLogistic" functionName="classification" algorithmName="LogisticRegression" modelName="KNIME Logistic Regression" targetReferenceCategory="white">
+    <MiningSchema>
+      <MiningField name="fixed_acidity" invalidValueTreatment="asIs"/>
+      <MiningField name="volatile_acidity" invalidValueTreatment="asIs"/>
+      <MiningField name="citric_acid" invalidValueTreatment="asIs"/>
+      <MiningField name="residual_sugar" invalidValueTreatment="asIs"/>
+      <MiningField name="chlorides" invalidValueTreatment="asIs"/>
+      <MiningField name="free_sulfur_dioxide" invalidValueTreatment="asIs"/>
+      <MiningField name="total_sulfur_dioxide" invalidValueTreatment="asIs"/>
+      <MiningField name="density" invalidValueTreatment="asIs"/>
+      <MiningField name="pH" invalidValueTreatment="asIs"/>
+      <MiningField name="sulphates" invalidValueTreatment="asIs"/>
+      <MiningField name="alcohol" invalidValueTreatment="asIs"/>
+      <MiningField name="style" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <ParameterList>
+      <Parameter name="p0" label="Intercept"/>
+      <Parameter name="p1" label="fixed_acidity"/>
+      <Parameter name="p2" label="volatile_acidity"/>
+      <Parameter name="p3" label="citric_acid"/>
+      <Parameter name="p4" label="residual_sugar"/>
+      <Parameter name="p5" label="chlorides"/>
+      <Parameter name="p6" label="free_sulfur_dioxide"/>
+      <Parameter name="p7" label="total_sulfur_dioxide"/>
+      <Parameter name="p8" label="density"/>
+      <Parameter name="p9" label="pH"/>
+      <Parameter name="p10" label="sulphates"/>
+      <Parameter name="p11" label="alcohol"/>
+    </ParameterList>
+    <FactorList/>
+    <CovariateList>
+      <Predictor name="fixed_acidity"/>
+      <Predictor name="volatile_acidity"/>
+      <Predictor name="citric_acid"/>
+      <Predictor name="residual_sugar"/>
+      <Predictor name="chlorides"/>
+      <Predictor name="free_sulfur_dioxide"/>
+      <Predictor name="total_sulfur_dioxide"/>
+      <Predictor name="density"/>
+      <Predictor name="pH"/>
+      <Predictor name="sulphates"/>
+      <Predictor name="alcohol"/>
+    </CovariateList>
+    <PPMatrix>
+      <PPCell value="1" predictorName="fixed_acidity" parameterName="p1"/>
+      <PPCell value="1" predictorName="volatile_acidity" parameterName="p2"/>
+      <PPCell value="1" predictorName="citric_acid" parameterName="p3"/>
+      <PPCell value="1" predictorName="residual_sugar" parameterName="p4"/>
+      <PPCell value="1" predictorName="chlorides" parameterName="p5"/>
+      <PPCell value="1" predictorName="free_sulfur_dioxide" parameterName="p6"/>
+      <PPCell value="1" predictorName="total_sulfur_dioxide" parameterName="p7"/>
+      <PPCell value="1" predictorName="density" parameterName="p8"/>
+      <PPCell value="1" predictorName="pH" parameterName="p9"/>
+      <PPCell value="1" predictorName="sulphates" parameterName="p10"/>
+      <PPCell value="1" predictorName="alcohol" parameterName="p11"/>
+    </PPMatrix>
+    <ParamMatrix>
+      <PCell targetCategory="red" parameterName="p0" beta="-4.4458824395082654" df="1"/>
+      <PCell targetCategory="red" parameterName="p1" beta="-0.17627776584490584" df="1"/>
+      <PCell targetCategory="red" parameterName="p2" beta="1.1324156174139297" df="1"/>
+      <PCell targetCategory="red" parameterName="p3" beta="-0.44296299022074864" df="1"/>
+      <PCell targetCategory="red" parameterName="p4" beta="-4.4491686142831375" df="1"/>
+      <PCell targetCategory="red" parameterName="p5" beta="0.8020290547580259" df="1"/>
+      <PCell targetCategory="red" parameterName="p6" beta="1.524011431859457" df="1"/>
+      <PCell targetCategory="red" parameterName="p7" beta="-3.653258992933202" df="1"/>
+      <PCell targetCategory="red" parameterName="p8" beta="4.975687254446078" df="1"/>
+      <PCell targetCategory="red" parameterName="p9" beta="-0.11504115541387641" df="1"/>
+      <PCell targetCategory="red" parameterName="p10" beta="0.5455092640088208" df="1"/>
+      <PCell targetCategory="red" parameterName="p11" beta="1.8533390202780935" df="1"/>
+    </ParamMatrix>
+  </GeneralRegressionModel>
+</PMML>
